@@ -1,0 +1,37 @@
+<?php
+
+	$c=0;
+
+	$con=mysql_connect("localhost","feedback","lalani292954");
+
+	if(!$con)
+
+		{
+
+			die('could not connect:'.mysql_error());
+
+		}
+
+	mysql_select_db("healthcare",$con);
+
+	$result=mysql_query("select * from news order by eno desc");
+
+	while($row=mysql_fetch_array($result))
+
+	{
+
+	 $p1=$p1."<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>".$row['newsevent']."</font>";
+
+	 $c=$c+1;
+
+	if($c==5)
+
+ 	break;
+
+ 	}
+
+ 	echo "<marquee direction=up behavior=scroll scrolldelay=50 scrollamount=2 onmouseover=this.stop() onmouseout=this.start()>".$p1."</marquee><br>";
+
+ 	mysql_close($con);
+
+ 	?>

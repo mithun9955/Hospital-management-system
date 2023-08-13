@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+
+	function blinkline()
+	{
+	  if(!document.getElementById('blink').style.color)
+	    {
+		  document.getElementById('blink').style.color="red";
+	    }
+	  if(document.getElementById('blink').style.color=="red")
+		{
+		   document.getElementById('blink').style.color="black";
+		}
+	  else
+		{
+			document.getElementById('blink').style.color="red";
+		}
+    timer=setTimeout("blinkline()",100);
+	}
+	
+	function stoptimer()
+	{
+		clearTimeout(timer);
+	}
+</script>
+</head>
+
+<body onload="blinkline()" onunload="stoptimer()">
+
+  <tr>
+    <td width="172"><a id="blink" href="default.asp">Istiyak</a> </td>
+  </tr>
+</table>
+</body>
+</html>
